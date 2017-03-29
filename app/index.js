@@ -8,9 +8,7 @@ import * as reducers from './reducers/index';
 import App from './components/App/App';
 // import AppContainer from './appContainer';
 // import { BrowserRouter } from 'react-router-dom';
-// import '../assets/styles/main.css';
-// import styles from '../assets/styles/main.css';
-require('./assets/styles/main.css');
+import styles from './assets/styles/main.css';
 
 const history = createHistory()
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
