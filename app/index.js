@@ -1,28 +1,34 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import thunk from 'redux-thunk';
+import logger from 'redux-logger'
 import createHistory from 'history/createBrowserHistory';
 import {  Provider } from 'react-redux';
 import {  createStore, combineReducers, applyMiddleware } from 'redux';
 import {  ConnectedRouter, routerReducer, routerMiddleware } from 'react-router-redux';
-import * as reducers from './reducers/index';
-import App from './components/App/App';
-// import AppContainer from './appContainer';
+import AppContainer from './components/App/AppContainer';
+import rootReducer from './reducers/index'
+import styles from './assets/styles/main';
+// import App from './components/App/App';
 // import { BrowserRouter } from 'react-router-dom';
-import styles from './assets/styles/main.css';
+// import * as reducers from './reducers/index';
+
 
 const history = createHistory()
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 const middleware = routerMiddleware(history)
-const rootReducer = combineReducers({
-  reducers,
-  router: routerReducer
-})
-const store = createStore(rootReducer, devTools, applyMiddleware(middleware))
+
+// const rootReducer = combineReducers({
+//   reducers,
+//   router: routerReducer     <------------ no longer passing routerReducer into rootReducer
+// })
+
+const store = createStore(rootReducer, devTools, applyMiddleware(middleware, thunk, logger))
 
 const router = (
   <Provider store={ store }>
     <ConnectedRouter history={ history }>
-      <App />
+      <AppContainer />
     </ConnectedRouter>
   </Provider>
 )
