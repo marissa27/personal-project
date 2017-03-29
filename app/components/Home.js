@@ -6,14 +6,14 @@ const Home = ({ movies }) => {
     return movies.map((movie) => {
       console.log(movie.title);
       return (
-        <MovieCard movie={movie.title} />
+        <MovieCard key={movie.id} movie={movie} />
       )
     })
   }
-  
+
   return (
     <div>
-    you are home 
+    you are home
     { displayAllMovies() }
     </div>
   )
