@@ -4,9 +4,9 @@ import thunk from 'redux-thunk';
 import logger from 'redux-logger'
 import createHistory from 'history/createBrowserHistory';
 import {  Provider } from 'react-redux';
-import {  createStore, combineReducers, applyMiddleware } from 'redux';
-import {  ConnectedRouter, routerReducer, routerMiddleware } from 'react-router-redux';
-import AppContainer from './components/App/AppContainer';
+import {  createStore, applyMiddleware } from 'redux';
+import {  ConnectedRouter, routerMiddleware } from 'react-router-redux';
+import AppContainer from './containers/AppContainer';
 import rootReducer from './reducers/index'
 import styles from './assets/styles/main';
 // import App from './components/App/App';
@@ -23,7 +23,7 @@ const middleware = routerMiddleware(history)
 //   router: routerReducer     <------------ no longer passing routerReducer into rootReducer
 // })
 
-const store = createStore(rootReducer, devTools, applyMiddleware(middleware, thunk, logger))
+const store = createStore(rootReducer, devTools, applyMiddleware(middleware, logger, thunk))
 
 const router = (
   <Provider store={ store }>

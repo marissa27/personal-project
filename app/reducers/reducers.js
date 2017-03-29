@@ -1,4 +1,4 @@
-const renderMovies = (state=[], action) => {
+const movies = (state=[], action) => {
 
   console.log('inside reducer', state, action.movies);
 
@@ -12,4 +12,4 @@ const renderMovies = (state=[], action) => {
   }
 }
 
-export default renderMovies;
+export default movies;

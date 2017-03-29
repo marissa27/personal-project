@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import MovieIndex from '../MovieIndex/MovieIndex'
+import MovieIndex from './MovieIndex'
 
 export default class App extends Component {
   constructor() {
@@ -10,7 +10,7 @@ export default class App extends Component {
   }
 
   render() {
-    
+
     console.log('props in App', this.props);
 
     return (

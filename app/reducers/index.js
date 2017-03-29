@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux'
-import renderMovies from './reducers'
+import {  routerReducer } from 'react-router-redux';
+import movies from './reducers'
 
 const rootReducer = combineReducers({
-  renderMovies
+  movies,
+  router: routerReducer
 })
 
 export default rootReducer

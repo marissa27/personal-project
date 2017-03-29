@@ -1,12 +1,12 @@
 import { connect } from 'react-redux';
-import App from './App'
-import fetchMovies from '../../actions/actions'
+import App from '../components/App'
+import fetchMovies from '../actions/actions'
 
 const mapStateToProps = (state) => {
 
-  console.log('mapToProps', state.renderMovies);
+  console.log('mapToProps', state.movies);
   return {
-    movies: state.renderMovies
+    movies: state.movies
   }
 }
 
