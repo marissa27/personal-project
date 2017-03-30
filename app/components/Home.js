@@ -5,9 +5,9 @@ import MovieCard from './MovieCard';
 import Login     from './Login';
 
 const Home = ({ movies }) => {
+  console.log(movies);
   const displayAllMovies = () => {
     return movies.map((movie) => {
-      console.log(movie.title);
       return (
         <MovieCard key={movie.id} movie={movie} />
       )
@@ -17,14 +17,12 @@ const Home = ({ movies }) => {
   return (
     <div>
       <p>To navigate our site please click a link then head towards your searchbar and click into it then hit enter.</p>
-    <p>you are home</p>
-    <section className="movie-wrapper">
-      { displayAllMovies() }
-    </section>
+      <p>you are home</p>
+      <section className="movie-wrapper">
+        { displayAllMovies() }
+      </section>
     </div>
   )
 }
 
 export default Home;
-
-// <Route exact path='/login' component={ Login }>

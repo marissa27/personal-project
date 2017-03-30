@@ -4,11 +4,13 @@ import { NavLink } from 'react-router-dom';
 const NavBar = () => {
   return (
     <nav>
-      <NavLink exact to='/'
+      <NavLink
+        to='/'
         activeClassName='selected'>
         Home
       </NavLink>
-      <NavLink exact to='/login'
+      <NavLink
+        to='/login'
         activeClassName='selected'>
         User Login
       </NavLink>
