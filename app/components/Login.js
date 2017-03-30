@@ -56,7 +56,7 @@ export default class Login extends Component {
           />
           Password
           <input
-            type="text"
+            type="password"
             name="password"
             value={this.state.password}
             onChange={ (e) => this.handleUserInput(e) }
@@ -70,5 +70,3 @@ export default class Login extends Component {
     );
   }
 }
-
-
