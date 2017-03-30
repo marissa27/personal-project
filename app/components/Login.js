@@ -20,6 +20,7 @@ export default class Login extends Component {
   login(e) {
     e.preventDefault();
     const { password, email } = this.state;
+    const { history, signIn } = this.props;
     fetch('http://localhost:3000/api/users', {
       method: "POST",
       headers: {"Content-Type": "application/json"},
@@ -36,7 +37,8 @@ export default class Login extends Component {
       return response.json()
     }).then(json => {
       console.log(json);
-      this.props.signIn(json.data)
+      signIn(json.data)
+      history.push('/')
     })
   }
 
