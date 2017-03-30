@@ -1,8 +1,7 @@
 import { connect } from 'react-redux';
-import App         from '../components/App'
-import {fetchMovies} from '../actions/actions'
-// import * as actions from '../actions/actions';
 
+import App         from '../components/App'
+import { fetchMovies } from '../actions/actions'
 
 const mapStateToProps = (state) => {
   return {

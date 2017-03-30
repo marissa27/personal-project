@@ -6,8 +6,7 @@ export default class Login extends Component {
     this.state = {
       email: '',
       password: '',
-      error: '',
-      response: {}
+      error: ''
     }
   }
 
@@ -17,7 +16,7 @@ export default class Login extends Component {
       [name]: value
     })
   }
-  
+
   login(e) {
     e.preventDefault();
     const { password, email } = this.state;
@@ -63,6 +62,7 @@ export default class Login extends Component {
 
         <button onClick={ (e) => this.login(e) } >Submit</button>
         { this.state.error !== '' && <h2>{this.state.error}</h2>}
+
         </form>
       </div>
     );
