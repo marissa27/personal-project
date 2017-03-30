@@ -14,6 +14,11 @@ const NavBar = () => {
         activeClassName='selected'>
         User Login
       </NavLink>
+      <NavLink
+        to='/create-user'
+        activeClassName='selected'>
+        Create Account
+      </NavLink>
     </nav>
   )
 }
