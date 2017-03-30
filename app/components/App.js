@@ -18,7 +18,6 @@ export default class App extends Component {
 
   render() {
     const { movies, user } = this.props
-
     return (
       <div>
 
@@ -31,7 +30,7 @@ export default class App extends Component {
         { user.signedIn && <h2>Welcome back, {user.name}</h2> }
 
         <Route exact path="/" render={({match}) =>
-          <Home movies={ movies } />
+          <Home movies={ movies } signedIn={ user.signedIn }/>
         } />
         <Route path='/login' component={ LoginContainer } />
 

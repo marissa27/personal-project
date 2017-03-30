@@ -4,11 +4,6 @@ import { NavLink } from 'react-router-dom';
 const NavBar = () => {
   return (
     <nav>
-      {/* <NavLink
-        to='/'
-        activeClassName='selected'>
-        Home
-      </NavLink> */}
       <NavLink
         to='/login'
         activeClassName='selected'>
