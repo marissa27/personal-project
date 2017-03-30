@@ -14,7 +14,6 @@ const Home = ({ movies }) => {
 
   return (
     <div>
-      <h3>HOME</h3>
       <section className="movie-wrapper">
         { displayAllMovies() }
       </section>
