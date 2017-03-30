@@ -6,7 +6,8 @@ export default class Login extends Component {
     this.state = {
       email: '',
       password: '',
-      error: ''
+      error: '',
+      response: {}
     }
   }
 
@@ -14,6 +15,29 @@ export default class Login extends Component {
     const { name, value } = e.target;
     this.setState({
       [name]: value
+    })
+  }
+  
+  login(e) {
+    e.preventDefault();
+    const { password, email } = this.state;
+    fetch('http://localhost:3000/api/users', {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({ email, password })
+    }).then(response => {
+      if(response.status > 300) {
+        this.setState({
+          error: 'Email and password do not match',
+          email: '',
+          password: ''
+        });
+        throw Error('Invalid email or password');
+      }
+      return response.json()
+    }).then(json => {
+      console.log(json);
+      this.props.signIn(json.data)
     })
   }
 
@@ -37,12 +61,12 @@ export default class Login extends Component {
             onChange={ (e) => this.handleUserInput(e) }
           />
 
-          <input
-            type="submit"
-            value="Submit"
-          />
+        <button onClick={ (e) => this.login(e) } >Submit</button>
+        { this.state.error !== '' && <h2>{this.state.error}</h2>}
         </form>
       </div>
     );
   }
 }
+
+
