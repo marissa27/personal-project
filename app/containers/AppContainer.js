@@ -4,9 +4,7 @@ import App         from '../components/App'
 import { fetchMovies } from '../actions/actions'
 
 const mapStateToProps = (state) => {
-  return {
-    movies: state.movies
-  }
+  return state
 }
 
 const mapDispatchToProps = (dispatch) => {
