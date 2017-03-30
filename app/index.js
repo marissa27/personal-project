@@ -12,6 +12,8 @@ import styles        from './assets/styles/main';
 // import App from './components/App/App';
 // import { BrowserRouter } from 'react-router-dom';
 // import * as reducers from './reducers/index';
+import { Route }            from 'react-router-dom';
+
 
 
 const history = createHistory()
@@ -29,6 +31,7 @@ const router = (
   <Provider store={ store }>
     <ConnectedRouter history={ history }>
       <AppContainer />
+      {/* <Route path='/' component={AppContainer} /> */}
     </ConnectedRouter>
   </Provider>
 )

@@ -24,20 +24,20 @@ export default class App extends Component {
 
         <h1>Movie Watcher</h1>
 
-        <Route path='/login' component={ Login } />
-
         <Route exact path="/" render={({match}) =>
           <Home movies={ movies } />
         } />
+      
+        <Route path='/login' component={ Login } />
 
-        <Route exact path='movie/:id' render={({match}) => {
+
+        <Route exact path='/movie/:id' render={({match}) => {
+          console.log(movies[0].id);
             const movie = movies.find(movie => movie.id === parseInt(match.params.id, 10))
-            console.log(movie);
             return <MovieDetails { ...movie } />
           }
         } />
 
-        {this.props.children}
       </div>
     )
   }
