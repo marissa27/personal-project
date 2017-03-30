@@ -1,8 +1,6 @@
 import React from 'react'
 
-const MovieDetails = (movie) => {
-  console.log(movie);
-  const { title, poster_path, overview } = movie
+const MovieDetails = ({ title, poster_path, overview }) => {
   return (
     <article className="movie-card">
       <h2>{ title }</h2>

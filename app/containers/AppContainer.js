@@ -3,8 +3,6 @@ import App         from '../components/App'
 import fetchMovies from '../actions/actions'
 
 const mapStateToProps = (state) => {
-
-  console.log('mapToProps', state.movies);
   return {
     movies: state.movies
   }

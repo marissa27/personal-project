@@ -1,6 +1,4 @@
 const receivedMovies = (movies) => {
-
-  console.log('action', movies);
   return {
     type: 'RECEIVED_MOVIES',
     movies
@@ -14,8 +12,6 @@ const fetchMovies = () => {
       return response.json()
     })
     .then((json) => {
-
-      console.log('fetch', json);
       return dispatch(receivedMovies(json))
     })
   }
