@@ -3,7 +3,7 @@ import { Route }            from 'react-router-dom';
 
 import Home                 from './Home';
 import MovieDetails         from './MovieDetails';
-import Login                from './Login';
+import LoginContainer       from '../containers/LoginContainer';
 import NavBar               from './NavBar';
 
 export default class App extends Component {
@@ -27,7 +27,7 @@ export default class App extends Component {
         <Route exact path="/" render={({match}) =>
           <Home movies={ movies } />
         } />
-        <Route path='/login' component={ Login } />
+        <Route path='/login' component={ LoginContainer } />
         <Route exact path='/movie/:id' render={({match}) => {
             const movie = movies.find(movie => movie.id === parseInt(match.params.id))
             return <MovieDetails { ...movie } />
