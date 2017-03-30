@@ -1,8 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const MovieCard = ({movie}) => {
+const MovieCard = ({ title, id, poster_path }) => {
   return (
-    <h1>{movie}</h1>
+    <Link to={`/movie/${id}`}>
+      <img
+        src={`https://image.tmdb.org/t/p/w150${poster_path}`}
+        alt={`movie poster of ${title}`}
+      />
+    </Link>
   )
 }
 

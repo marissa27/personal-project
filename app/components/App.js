@@ -1,28 +1,39 @@
 import React, { Component } from 'react';
-import MovieIndex from './MovieIndex';
-import { Route } from 'react-router-dom';
-import Home from './Home';
+import { Route }            from 'react-router-dom';
+
+import Home                 from './Home';
+import MovieDetails         from './MovieDetails';
+import Login                from './Login';
+import NavBar               from './NavBar';
 
 export default class App extends Component {
   constructor() {
     super();
   }
+
   componentWillMount() {
     this.props.fetchMovies()
   }
 
   render() {
-
-    console.log('props in App', this.props);
+    const { movies } = this.props
 
     return (
       <div>
+
+        <NavBar />
         <h1>Movie Watcher</h1>
-        <Route exact path="/" render={({match}) => 
-          <Home movies={ this.props.movies } />
+
+        <Route exact path="/" render={({match}) =>
+          <Home movies={ movies } />
         } />
-        {this.props.children}
-        <MovieIndex />
+        <Route path='/login' component={ Login } />
+        <Route exact path='/movie/:id' render={({match}) => {
+            const movie = movies.find(movie => movie.id === parseInt(match.params.id))
+            return <MovieDetails { ...movie } />
+          }
+        } />
+
       </div>
     )
   }
