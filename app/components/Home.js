@@ -16,16 +16,11 @@ const Home = ({ movies }) => {
 
   return (
     <div>
+      <p>To navigate our site please click a link then head towards your searchbar and click into it then hit enter.</p>
     <p>you are home</p>
-
-    <Link to="/login">
-      <h3>
-          Click me to login, bitch.
-      </h3>
-    </Link>
-
-    { displayAllMovies() }
-
+    <section className="movie-wrapper">
+      { displayAllMovies() }
+    </section>
     </div>
   )
 }
