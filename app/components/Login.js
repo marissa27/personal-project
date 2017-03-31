@@ -25,7 +25,8 @@ export default class Login extends Component {
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify({ email, password })
-    }).then(response => {
+    })
+    .then(response => {
       if(response.status > 300) {
         this.setState({
           error: 'Email and password do not match',
@@ -35,8 +36,8 @@ export default class Login extends Component {
         throw Error('Invalid email or password');
       }
       return response.json()
-    }).then(json => {
-      console.log(json);
+    })
+    .then(json => {
       signIn(json.data)
       history.push('/')
     })

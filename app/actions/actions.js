@@ -24,3 +24,9 @@ export const signIn = (user) => {
   }
 }
 
+export const signOut = () => {
+  return {
+    type: 'SIGN_OUT',
+  }
+}
+

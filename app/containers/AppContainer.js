@@ -1,6 +1,6 @@
-import { connect } from 'react-redux';
+import { connect }     from 'react-redux';
 
-import App         from '../components/App'
+import App             from '../components/App'
 import { fetchMovies } from '../actions/actions'
 
 const mapStateToProps = (state) => {
@@ -9,7 +9,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchMovies: () => dispatch(fetchMovies())
+    fetchMovies: () => dispatch(fetchMovies()),
+    signOut: () => dispatch(signOut())
   }
 }
 

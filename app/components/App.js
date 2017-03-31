@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { Route }            from 'react-router-dom';
+import { Route, Link }            from 'react-router-dom';
 
 import Home                 from './Home';
 import MovieDetails         from './MovieDetails';
 import LoginContainer       from '../containers/LoginContainer';
-import CreateUserContainer from '../containers/CreateUserContainer';
+import CreateUserContainer  from '../containers/CreateUserContainer';
 import NavBar               from './NavBar';
 
 export default class App extends Component {
@@ -17,17 +17,20 @@ export default class App extends Component {
   }
 
   render() {
-    const { movies, user } = this.props
-
+    const { movies, user, signOut } = this.props
     return (
       <div>
 
-        <NavBar />
-        <h1>Movie Watcher</h1>
-        { user.name && <h2>Hello {user.name}</h2> }
+        <NavBar signedIn={ user.signedIn } signOut={ signOut }/>
+
+        <Link to={`/`}>
+          <h1>Movie Watcher</h1>
+        </Link>
+
+        { user.signedIn && <h2>Welcome back, {user.name}</h2> }
 
         <Route exact path="/" render={({match}) =>
-          <Home movies={ movies } />
+          <Home movies={ movies } signedIn={ user.signedIn }/>
         } />
         <Route path='/login' component={ LoginContainer } />
 
