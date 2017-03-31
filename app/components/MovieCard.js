@@ -3,15 +3,8 @@ import { Link } from 'react-router-dom';
 
 const MovieCard = ({ title, id, poster_path, signedIn }) => {
 
-  console.log(signedIn);
-
   const handleFavorite = () => {
-    if(!signedIn) {
-      console.log('sign in');
-      
-    } else {
-      console.log('signed IN.......');
-    }
+    !signedIn ? console.log('sign in') : console.log('signed IN.......');
   }
 
   return (
