@@ -9,7 +9,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchMovies: () => dispatch(fetchMovies())
+    fetchMovies: () => dispatch(fetchMovies()),
+    signOut: () => dispatch(signOut())
   }
 }
 

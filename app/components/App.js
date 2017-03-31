@@ -17,11 +17,11 @@ export default class App extends Component {
   }
 
   render() {
-    const { movies, user } = this.props
+    const { movies, user, signOut } = this.props
     return (
       <div>
 
-        <NavBar />
+        <NavBar signedIn={ user.signedIn } signOut={ signOut }/>
 
         <Link to={`/`}>
           <h1>Movie Watcher</h1>
