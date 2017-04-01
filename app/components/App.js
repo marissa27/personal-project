@@ -3,9 +3,10 @@ import { Route, Link }            from 'react-router-dom';
 
 import Home                 from './Home';
 import MovieDetails         from './MovieDetails';
-import LoginContainer       from '../containers/LoginContainer';
-import CreateUserContainer  from '../containers/CreateUserContainer';
+import Favorites            from './Favorites';
 import NavBar               from './NavBar';
+import LoginContainer       from '../containers/LoginContainer';
+import CreateUser  from './CreateUser';
 
 export default class App extends Component {
   constructor() {
@@ -17,11 +18,18 @@ export default class App extends Component {
   }
 
   render() {
-    const { movies, user, signOut } = this.props
+    const { movies, user, signOut, showFavorites, favorites, history } = this.props
     return (
       <div>
 
-        <NavBar signedIn={ user.signedIn } signOut={ signOut }/>
+        <NavBar
+          signedIn={ user.signedIn }
+          signOut={ signOut }
+          showFavorites={ showFavorites }
+          userID={ user.id }
+          history={ history }
+
+        />
 
         <Link to={`/`}>
           <h1>Movie Watcher</h1>
@@ -30,16 +38,19 @@ export default class App extends Component {
         { user.signedIn && <h2>Welcome back, {user.name}</h2> }
 
         <Route exact path="/" render={({match}) =>
-          <Home movies={ movies } signedIn={ user.signedIn }/>
+          <Home movies={ movies } signedIn={ user.signedIn } userID={ user.id }/>
         } />
         <Route path='/login' component={ LoginContainer } />
 
-        <Route path='/create-user' component={ CreateUserContainer } />
+        <Route path='/create-user' component={ CreateUser } />
 
         <Route exact path='/movie/:id' render={({match}) => {
             const movie = movies.find(movie => movie.id === parseInt(match.params.id))
             return <MovieDetails { ...movie } />
           }
+        } />
+        <Route exact path='/favorites' render={({match}) =>
+            <Favorites userID={ user.id } favorites={ favorites } />
         } />
 
       </div>

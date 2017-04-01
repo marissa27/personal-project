@@ -30,3 +30,12 @@ export const signOut = () => {
   }
 }
 
+export const showFavorites = (favorites) => {
+  return {
+    type: 'SHOW_FAVORITES',
+    favorites
+  }
+}
+
+
+
