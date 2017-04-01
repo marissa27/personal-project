@@ -30,7 +30,7 @@ export default class App extends Component {
         { user.signedIn && <h2>Welcome back, {user.name}</h2> }
 
         <Route exact path="/" render={({match}) =>
-          <Home movies={ movies } signedIn={ user.signedIn }/>
+          <Home movies={ movies } signedIn={ user.signedIn } userID={ user.id }/>
         } />
         <Route path='/login' component={ LoginContainer } />
 
