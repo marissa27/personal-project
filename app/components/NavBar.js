@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-const NavBar = ({ signedIn, signOut, userID, history, showFavorites }) => {
+const NavBar = ({ signedIn, signOut, userID, history, showFavorites, fetchMovies }) => {
 
   const login = () => {
     if(!signedIn) {
@@ -16,7 +16,7 @@ const NavBar = ({ signedIn, signOut, userID, history, showFavorites }) => {
       return (
         <button
           className='nav-button'
-          onClick={ () => signOut() }>
+          onClick={ () => { signOut(); fetchMovies() } }>
           Logout
         </button>
       )

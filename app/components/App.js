@@ -18,7 +18,7 @@ export default class App extends Component {
   }
 
   render() {
-    const { movies, user, signOut, showFavorites, favorites, history } = this.props
+    const { movies, user, signOut, showFavorites, favorites, history, fetchMovies } = this.props
     return (
       <div>
 
@@ -28,6 +28,7 @@ export default class App extends Component {
           showFavorites={ showFavorites }
           userID={ user.id }
           history={ history }
+          fetchMovies={ fetchMovies }
 
         />
 
