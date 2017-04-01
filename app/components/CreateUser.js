@@ -26,7 +26,7 @@ export default class CreateUser extends Component {
   createUser(e) {
     e.preventDefault();
     const { password, email, name } = this.state;
-    const { history, signIn } = this.props;
+    const { history } = this.props;
 
     if (!this.validateEmail(email)) {
       this.setState({

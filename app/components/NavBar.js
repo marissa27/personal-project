@@ -1,36 +1,56 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-const NavBar = ({ signedIn, signOut }) => {
+const NavBar = ({ signedIn, signOut, userID, history, showFavorites }) => {
 
   const login = () => {
     if(!signedIn) {
       return (
-        <NavLink
-          to='/login'
-          activeClassName='selected'>
+        <button
+          className='nav-button'
+          onClick={ () => history.push('/login') }>
           Login
-        </NavLink>
+        </button>
       )
     } else {
       return (
-        <NavLink
-          to='/'
-          activeClassName='selected'
+        <button
+          className='nav-button'
           onClick={ () => signOut() }>
           Logout
-        </NavLink>
+        </button>
       )
     }
   }
+
+  const fetchFavorites = () => {
+    if(!userID) {
+      history.push('/login')
+    } else {
+      fetch(`http://localhost:3000/api/users/${userID}/favorites`)
+      .then(response => {
+        return response.json()
+      })
+      .then(json => {
+        showFavorites(json.data)
+        history.push('/favorites')
+      })
+    }
+  }
+
   return (
     <nav>
       { login() }
-      <NavLink
-        to='/create-user'
-        activeClassName='selected'>
+      <button
+        className='nav-button'
+        onClick={ () => history.push('/create-user') }>
         Create Account
-      </NavLink>
+      </button>
+      <button
+        className='nav-button'
+        onClick={ () => fetchFavorites() }>
+        Favorites
+      </button>
     </nav>
   )
 }

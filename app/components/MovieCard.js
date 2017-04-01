@@ -34,17 +34,17 @@ const MovieCard = ({ title, id, poster_path, signedIn, release_date, vote_averag
     })
   }
 
-  const inFavorites = () => {
-    fetch(`http://localhost:3000/api/users/${userID}/favorites`)
-    .then(response => {
-      console.log(response);
-      return response.json()
-    })
-    .then(json => {
-      console.log(json);
-      return json
-    })
-  }
+  // const inFavorites = () => {
+  //   fetch(`http://localhost:3000/api/users/${userID}/favorites`)
+  //   .then(response => {
+  //     console.log(response);
+  //     return response.json()
+  //   })
+  //   .then(json => {
+  //     console.log(json);
+  //     return json
+  //   })
+  // }
 
   // const handleFavorite = () => {
   //   console.log('clicked');
