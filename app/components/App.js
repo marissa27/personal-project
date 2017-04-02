@@ -79,7 +79,7 @@ export default class App extends Component {
 
         <Route exact path='/movie/:id' render={({match}) => {
             const movie = movies.find(movie => movie.id === parseInt(match.params.id))
-            return <MovieDetails { ...movie } />
+            return <MovieDetails { ...movie } history={ history }/>
           }
         } />
         <Route exact path='/favorites' render={({match}) =>
