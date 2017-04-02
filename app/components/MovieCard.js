@@ -1,14 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const MovieCard = ({ title, id, poster_path, signedIn, release_date, vote_average, userID, overview }) => {
+const MovieCard = ({ title, movie_id, poster_path, release_date, vote_average, userID, overview, favorites, fetchFavorites, history }) => {
 
 
   const addFavorite = () => {
+    if(!userID) { history.push('/login') }
+    if(isInFavorites()) {
+      return removeFavorite(movie_id)
+    }
+
     fetch('http://localhost:3000/api/users/favorites/new', {
       method: "POST",
       headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({ movie_id: id, user_id: userID, title, poster_path, release_date, vote_average, overview })
+      body: JSON.stringify({ movie_id, user_id: userID, title, poster_path, release_date, vote_average, overview })
     })
     .then(response => {
       console.log(response);
@@ -16,14 +21,21 @@ const MovieCard = ({ title, id, poster_path, signedIn, release_date, vote_averag
     })
     .then(json => {
       console.log(json);
+      fetchFavorites('movieFavorite', userID)
     })
   }
 
-  const removeFavorite = () => {
-    fetch(`http://localhost:3000/api/users/${userID}/favorites/${favoriteID}`, {
-      method: "POST",
+  const isInFavorites = () => {
+    return favorites.find(movie => {
+      return movie.movie_id === movie_id
+    })
+  }
+
+  const removeFavorite = (movie_id) => {
+    fetch(`http://localhost:3000/api/users/${userID}/favorites/${movie_id}`, {
+      method: "DELETE",
       headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({ user_id: userID, movie_id: favoriteID })
+      body: JSON.stringify({ user_id: userID, movie_id })
     })
     .then(response => {
       console.log(response);
@@ -31,30 +43,13 @@ const MovieCard = ({ title, id, poster_path, signedIn, release_date, vote_averag
     })
     .then(json => {
       console.log(json);
+      fetchFavorites(null, userID)
     })
   }
-
-  // const inFavorites = () => {
-  //   fetch(`http://localhost:3000/api/users/${userID}/favorites`)
-  //   .then(response => {
-  //     console.log(response);
-  //     return response.json()
-  //   })
-  //   .then(json => {
-  //     console.log(json);
-  //     return json
-  //   })
-  // }
-
-  // const handleFavorite = () => {
-  //   console.log('clicked');
-  //   addFavorite()
-  //   !signedIn ? addFavorite() : addFavorite();
-  // }
 
   return (
-    <article className="movie-card">
-      <Link to={`/movie/${id}`}>
+    <article>
+      <Link to={`/movie/${movie_id}`}>
         <img
           className="movie-poster"
           src={`https://image.tmdb.org/t/p/w150${poster_path}`}
@@ -64,8 +59,6 @@ const MovieCard = ({ title, id, poster_path, signedIn, release_date, vote_averag
       <button className="btn red rounded" onClick={ () => addFavorite() }>
         FAVORITE
         </button>
-      {/* <button onClick={ () => inFavorites() }>Fav</button> */}
-      {/* <button onClick={ () => removeFavorite() }>Remove</button> */}
     </article>
   )
 }

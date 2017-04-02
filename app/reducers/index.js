@@ -4,11 +4,19 @@ import movies from './movieReducer';
 import user from './userReducer';
 import favorites from './favoritesReducer';
 
-const rootReducer = combineReducers({
+const appReducer = combineReducers({
   movies,
   user,
   favorites,
   router: routerReducer
 })
+
+const rootReducer = (state, action) => {
+  if (action.type === 'SIGN_OUT') {
+    state = undefined
+  }
+
+  return appReducer(state, action)
+}
 
 export default rootReducer;
