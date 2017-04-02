@@ -51,13 +51,18 @@ const MovieCard = ({ title, movie_id, poster_path, release_date, vote_average, u
     <article>
       <Link to={`/movie/${movie_id}`}>
         <img
+          className="movie-poster"
           src={`https://image.tmdb.org/t/p/w150${poster_path}`}
           alt={`movie poster of ${title}`}
         />
       </Link>
-      <button onClick={ () => addFavorite() }>Fav</button>
+      <button className="btn red rounded" onClick={ () => addFavorite() }>
+        FAVORITE
+        </button>
     </article>
   )
 }
 
 export default MovieCard;
+
+// <img src="../assets/images/sans-fav.png"/>
