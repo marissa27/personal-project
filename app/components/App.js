@@ -39,6 +39,12 @@ export default class App extends Component {
     const { movies, user, signOut, favorites, history, fetchMovies } = this.props
     return (
       <div>
+        <header>
+        <Link to={`/`}>
+          <h1><span className="mov-title">M</span>
+          <img className="film-reel" src="../assets/images/film-reel.svg"></img>
+          <span className="mov-title">vie</span> Watcher</h1>
+        </Link>
 
         <NavBar
           signedIn={ user.signedIn }
@@ -50,9 +56,7 @@ export default class App extends Component {
 
         />
 
-        <Link to={`/`}>
-          <h1>Movie Watcher</h1>
-        </Link>
+    </header>
 
         { user.signedIn && <h2>Welcome back, {user.name}</h2> }
 
