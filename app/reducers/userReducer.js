@@ -10,9 +10,7 @@ const user = (state=initialState, action) => {
     case 'SIGN_IN':
       return Object.assign({}, state, action.user, { signedIn: true });
       break;
-    case 'SIGN_OUT':
-      return Object.assign({}, initialState);
-      break;
+      
   default:
     return state;
   }
