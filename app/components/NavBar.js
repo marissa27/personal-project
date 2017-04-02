@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-const NavBar = ({ signedIn, signOut, userID, history, showFavorites, fetchMovies }) => {
+const NavBar = ({ signedIn, signOut, userID, history, fetchMovies, fetchFavorites }) => {
 
   const login = () => {
     if(!signedIn) {
@@ -23,21 +23,6 @@ const NavBar = ({ signedIn, signOut, userID, history, showFavorites, fetchMovies
     }
   }
 
-  const fetchFavorites = () => {
-    if(!userID) {
-      history.push('/login')
-    } else {
-      fetch(`http://localhost:3000/api/users/${userID}/favorites`)
-      .then(response => {
-        return response.json()
-      })
-      .then(json => {
-        showFavorites(json.data)
-        history.push('/favorites')
-      })
-    }
-  }
-
   return (
     <nav>
       { login() }
@@ -48,7 +33,7 @@ const NavBar = ({ signedIn, signOut, userID, history, showFavorites, fetchMovies
       </button>
       <button
         className='nav-button'
-        onClick={ () => fetchFavorites() }>
+        onClick={ () => fetchFavorites('navFavorites', userID) }>
         Favorites
       </button>
     </nav>

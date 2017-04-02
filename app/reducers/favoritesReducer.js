@@ -1,8 +1,7 @@
 const favorites = (state=[], action) => {
-  console.log(action.favorites);
   switch (action.type) {
     case 'SHOW_FAVORITES':
-      return [...state, ...action.favorites];
+      return [...action.favorites];
       break;
 
     default:
