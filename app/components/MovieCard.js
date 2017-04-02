@@ -48,7 +48,7 @@ const MovieCard = ({ title, movie_id, poster_path, release_date, vote_average, u
   }
 
   return (
-    <article>
+    <article className="movie-display">
       <Link to={`/movie/${movie_id}`}>
         <img
           className="movie-poster"

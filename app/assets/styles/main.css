@@ -1,9 +1,26 @@
 @import url('./reset.css');
 @import url('./forms.css');
 @import url('./card.css');
-
+@import url('./header.css');
+@import url('./buttons.css');
 
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700');
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  background: #000000; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #000000 , #434343); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #000000 , #434343); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+h1 {
+  color: white;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+}
 
 nav {
   color: white;
@@ -57,24 +74,8 @@ nav a {
   position: relative;
 }
 
-
-@import url('./header.css');
-@import url('./buttons.css');
-
-body {
-  font-family: 'Source Sans Pro', sans-serif;
-  background: #000000; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, #000000 , #434343); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #000000 , #434343); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
-
-h1 {
-  color: white;
-  text-align: center;
-}
-
-a {
-  text-decoration: none;
+.movie-display {
+  position: relative;
 }
 
 .movie-wrapper {
