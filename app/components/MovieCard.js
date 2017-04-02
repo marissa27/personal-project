@@ -5,7 +5,6 @@ const MovieCard = ({ title, movie_id, poster_path, release_date, vote_average, u
 
 
   const addFavorite = () => {
-    console.log('user', userID, 'movie', movie_id);
     if(!userID) { history.push('/login') }
     if(isInFavorites()) {
       return removeFavorite(movie_id)
@@ -44,7 +43,7 @@ const MovieCard = ({ title, movie_id, poster_path, release_date, vote_average, u
     })
     .then(json => {
       console.log(json);
-      fetchFavorites(userID)
+      fetchFavorites(null, userID)
     })
   }
 

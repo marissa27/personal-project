@@ -19,10 +19,11 @@ export default class App extends Component {
   }
 
   fetchFavorites(button, userID) {
-    console.log('fetch', userID);
+    console.log('fetch', userID, button);
     if(!userID) {
       this.props.history.push('/login')
-    } else {
+    }
+    else {
       fetch(`http://localhost:3000/api/users/${userID}/favorites`)
       .then(response => {
         return response.json()
