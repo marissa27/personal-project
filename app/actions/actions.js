@@ -1,4 +1,4 @@
-const receivedMovies = (movies) => {
+export const receivedMovies = (movies) => {
   return {
     type: 'RECEIVED_MOVIES',
     movies
