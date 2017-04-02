@@ -1,14 +1,17 @@
-/*@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700');
+@import url('./reset.css');
+@import url('./forms.css');
+@import url('./card.css');
 
-body {
-  font-family: 'Source Sans Pro', sans-serif;
-  background-image: url('http://www.nepretzel.com/ProdImages/popcorn_pic.jpg');
-  background-size: cover;
-}
+
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700');
 
 nav {
   color: white;
-  background-image: url('https://cdn.shutterstock.com/shutterstock/videos/642736/thumb/1.jpg');
+  margin: 20px 0;
+  top: 0;
+  background: #fa5a5a;
+  padding: 10px;
+  width: 100%;
 }
 
 nav a {
@@ -17,12 +20,10 @@ nav a {
 }
 
 #main h1 {
-  background-image: url('https://i.makeagif.com/media/4-10-2015/96RxxM.gif');
-  font-size: 50px;
+  font-size: 40px;
   color: white;
   border-radius: 10px;
-  height: 100px;
-  background-size: cover;
+  margin: 10px 0;
 }
 
 #main {
@@ -30,7 +31,7 @@ nav a {
 }
 
 .selected {
-  color: salmon;
+  background-color: #fa5a5a;
   font-weight: 600;
   font-size: 20px;
 }
@@ -42,26 +43,51 @@ nav a {
   align-items: center;
 }
 
+.movie-poster {
+  box-shadow: 2px 2px 2px black;
+  margin-bottom: 20px;
+}
+
+.movie-poster:hover {
+  box-shadow: 2px 2px 2px black;
+  margin-bottom: 20px;
+}
+
 .movie-card {
-  background-color: white;
-  color: black;
-  padding: 20px;
-  margin: 15px;
-  border-radius: 10px;
-  width: 250px;
+  position: relative;
 }
 
-img {
-  -webkit-transform: rotate(15deg) translateZ(10em);
-  transform: rotate(15deg) translateZ(10em);
-  box-shadow: 10px 10px 10px yellow;
-  margin-bottom: 20px;
+
+@import url('./header.css');
+@import url('./buttons.css');
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  background: #000000; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #000000 , #434343); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #000000 , #434343); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-img:hover {
-  -webkit-transform: rotate(-15deg) translateZ(10em);
-  transform: rotate(-15deg) translateZ(10em);
-  box-shadow: -10px -10px 10px yellow;
-  margin-bottom: 20px;
-  cursor: progress;
-}*/
+h1 {
+  color: white;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+.movie-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.movie-poster {
+  width: 200px;
+}
+
+.film-reel {
+  width: 40px;
+}

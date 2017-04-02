@@ -23,7 +23,8 @@ module.exports = {
          presets: ['es2015', 'react']
        }
      },
-   { test: /\.css$/, loader: 'style!css' }
+   { test: /\.css$/, loader: 'style!css' },
+   { test: /\.svg$/, loader: 'svg-url-loader' }
  ]
    },
   resolve: {

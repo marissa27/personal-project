@@ -57,24 +57,27 @@ export default class CreateUser extends Component {
   render() {
     return(
       <div>
-        <h2>Create Account Page</h2>
-        <form>
-          Name
+        <h6>Create Account Page</h6>
+        <form className="login">
           <input
+            className="name"
+            placeholder="Name"
             type="text"
             name="name"
             value={this.state.name}
             onChange={ (e) => this.handleCreateUser(e) }
           />
-          Email
           <input
+            className="email"
+            placeholder="E-Mail"
             type="email"
             name="email"
             value={this.state.email}
             onChange={ (e) => this.handleCreateUser(e) }
           />
-          Password
           <input
+            className="password"
+            placeholder="Password"
             type="password"
             name="password"
             value={this.state.password}

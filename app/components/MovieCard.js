@@ -53,14 +53,17 @@ const MovieCard = ({ title, id, poster_path, signedIn, release_date, vote_averag
   // }
 
   return (
-    <article>
+    <article className="movie-card">
       <Link to={`/movie/${id}`}>
         <img
+          className="movie-poster"
           src={`https://image.tmdb.org/t/p/w150${poster_path}`}
           alt={`movie poster of ${title}`}
         />
       </Link>
-      <button onClick={ () => addFavorite() }>Fav</button>
+      <button className="btn red rounded" onClick={ () => addFavorite() }>
+        FAVORITE
+        </button>
       {/* <button onClick={ () => inFavorites() }>Fav</button> */}
       {/* <button onClick={ () => removeFavorite() }>Remove</button> */}
     </article>
@@ -68,3 +71,5 @@ const MovieCard = ({ title, id, poster_path, signedIn, release_date, vote_averag
 }
 
 export default MovieCard;
+
+// <img src="../assets/images/sans-fav.png"/>
