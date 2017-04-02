@@ -16,7 +16,7 @@ const NavBar = ({ signedIn, signOut, userID, history, fetchMovies, fetchFavorite
       return (
         <button
           className='nav-button'
-          onClick={ () => { signOut(); fetchMovies() } }>
+          onClick={ () => { signOut(); fetchMovies(); history.push('/') } }>
           Logout
         </button>
       )
