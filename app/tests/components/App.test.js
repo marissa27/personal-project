@@ -19,20 +19,39 @@ describe('App', () => {
     signedIn: true
   }
 
-  it.only('Renders Home, Favorites, NavBar', () => {
-  const wrapper = shallow(
-    <StaticRouter>
+  it('should display Login button if no user is signed in', () => {
+    const wrapper = shallow(
       <App
-        user={user}
+        user={ {} }
         fetchMovies={ () => {} }
-        />
-    </StaticRouter>
-  );
-  console.log(wrapper);
+      />
+    );
 
-  expect(wrapper.find('Home').length).toEqual(1);
-  expect(wrapper.find('Favorites').length).toEqual(1);  expect(wrapper.find('NavBar').length).toEqual(1);
-});
+    const buttonText = wrapper.find(NavBar)
+                              .dive()
+                              .find('button')
+                              .first()
+                              .text()
+
+    expect(buttonText).toEqual('Login');
+  });
+
+  it('displays users name and Logout button when user is signedIn', () => {
+    const wrapper = shallow(
+      <App
+        user={ user }
+        fetchMovies={ () => {} }
+      />
+    );
+    const buttonText = wrapper.find(NavBar)
+                              .dive()
+                              .find('button')
+                              .first()
+                              .text()
+
+    expect(buttonText).toEqual('Logout');
+    expect(wrapper.find('h2').text()).toEqual('Welcome back, marissa');
+  });
 
 // it('Should take in user props', () => {
 //   const wrapper = mount(

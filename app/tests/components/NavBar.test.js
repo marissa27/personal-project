@@ -34,8 +34,8 @@ describe('testing NavBar', () => {
   it('should redirect to create-user page on click', () => {
     spyOn(browserHistory, 'push');
     const wrapper = mount( <NavBar history={ browserHistory }/> )
-    const CreateAccBtn = wrapper.childAt(1)
-    CreateAccBtn.simulate('click');
+    const createAccBtn = wrapper.childAt(1)
+    createAccBtn.simulate('click');
 
     expect(browserHistory.push).toHaveBeenCalledWith('/create-user');
   })
