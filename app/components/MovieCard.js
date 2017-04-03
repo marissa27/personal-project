@@ -65,4 +65,3 @@ const MovieCard = ({ title, movie_id, poster_path, release_date, vote_average, u
 
 export default MovieCard;
 
-// <img src="../assets/images/sans-fav.png"/>
