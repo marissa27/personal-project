@@ -5,10 +5,10 @@
 .btn.red {
     background-color: #fa5a5a;
 }
+
 .btn {
     border: 0;
     padding: 5px 15px;
-
     color: white;
     position: absolute;
     right: 0;

@@ -40,23 +40,21 @@ export default class App extends Component {
     return (
       <div>
         <header>
-        <Link to={`/`}>
-          <h1><span className="mov-title">M</span>
-          <img className="film-reel" src="../assets/images/film-reel.svg"></img>
-          <span className="mov-title">vie</span> Watcher</h1>
-        </Link>
+          <Link to={`/`}>
+            <h1><span className="mov-title">M</span>
+            <img className="film-reel" src="../assets/images/film-reel.svg"></img>
+            <span className="mov-title">vie</span> Watcher</h1>
+          </Link>
 
-        <NavBar
-          signedIn={ user.signedIn }
-          signOut={ signOut }
-          fetchFavorites={ this.fetchFavorites }
-          userID={ user.id }
-          history={ history }
-          fetchMovies={ fetchMovies }
-
-        />
-
-    </header>
+          <NavBar
+            signedIn={ user.signedIn }
+            signOut={ signOut }
+            fetchFavorites={ this.fetchFavorites }
+            userID={ user.id }
+            history={ history }
+            fetchMovies={ fetchMovies }
+          />
+        </header>
 
         { user.signedIn && <h2>Welcome back, {user.name}</h2> }
 
@@ -94,7 +92,6 @@ export default class App extends Component {
               history={ history }
             />
         } />
-
       </div>
     )
   }
