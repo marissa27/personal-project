@@ -36,5 +36,5 @@ describe('testing MovieDetails', () => {
     backBtn.simulate('click');
 
     expect(browserHistory.push).toHaveBeenCalledWith('/');
-  })
-})
+  });
+});

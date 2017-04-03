@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 const MovieCard = ({ title, movie_id, poster_path, release_date, vote_average, userID, overview, favorites, fetchFavorites, history }) => {
 
-
   const addFavorite = () => {
     if(!userID) { history.push('/login') }
     if(isInFavorites()) {

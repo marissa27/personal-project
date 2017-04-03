@@ -110,7 +110,6 @@ describe('testing Login', () => {
 
     expect(browserHistory.push).toHaveBeenCalledWith('/');
 
-    done()
-  })
-
-})
+    done();
+  });
+});

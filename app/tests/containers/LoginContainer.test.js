@@ -45,5 +45,4 @@ describe('LoginContainer', () => {
       'signIn'
     );
   });
-
-})
+});
