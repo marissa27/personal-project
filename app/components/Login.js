@@ -18,7 +18,7 @@ export default class Login extends Component {
   }
 
   login(e) {
-    e.preventDefault();
+    // e.preventDefault();
     const { password, email } = this.state;
     const { history, signIn } = this.props;
     fetch('http://localhost:3000/api/users', {
