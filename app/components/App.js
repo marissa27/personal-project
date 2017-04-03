@@ -18,7 +18,6 @@ export default class App extends Component {
   }
 
   fetchFavorites(button, userID) {
-    console.log('fetch', userID, button);
     if(!userID) {
       this.props.history.push('/login')
     }

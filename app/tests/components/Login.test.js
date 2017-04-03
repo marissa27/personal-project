@@ -106,8 +106,6 @@ describe('testing Login', () => {
     submitBtn.simulate('click');
     await wrapper.update();
 
-    console.log(wrapper.state());
-
     expect(browserHistory.push).toHaveBeenCalledWith('/');
 
     done();
