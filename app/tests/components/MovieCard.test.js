@@ -43,5 +43,5 @@ describe('testing MovieCard', () => {
     favoriteBtn.simulate('click');
 
     expect(browserHistory.push).toHaveBeenCalledWith('/login');
-  })
-})
+  });
+});

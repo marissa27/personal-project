@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const MovieDetails = ({ title, poster_path, overview, vote_average, vote_count, history }) => {
   return (
@@ -20,4 +20,4 @@ const MovieDetails = ({ title, poster_path, overview, vote_average, vote_count, 
   )
 }
 
-export default MovieDetails
+export default MovieDetails;

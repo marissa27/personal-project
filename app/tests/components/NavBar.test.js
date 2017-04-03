@@ -9,7 +9,7 @@ describe('testing NavBar', () => {
     const wrapper = shallow( <NavBar /> )
 
     expect(wrapper.find('button')).toHaveLength(3)
-  })
+  });
 
   it('should accept default props', () => {
     const wrapper = mount(
@@ -20,7 +20,7 @@ describe('testing NavBar', () => {
 
     expect(wrapper.props().userID).toEqual(12345)
     expect(wrapper.props().signedIn).toEqual(true)
-  })
+  });
 
   it('should redirect to login page on click', () => {
     spyOn(browserHistory, 'push');
@@ -29,7 +29,7 @@ describe('testing NavBar', () => {
     loginBtn.simulate('click');
 
     expect(browserHistory.push).toHaveBeenCalledWith('/login');
-  })
+  });
 
   it('should redirect to create-user page on click', () => {
     spyOn(browserHistory, 'push');
@@ -38,6 +38,5 @@ describe('testing NavBar', () => {
     createAccBtn.simulate('click');
 
     expect(browserHistory.push).toHaveBeenCalledWith('/create-user');
-  })
-
-})
+  });
+});
