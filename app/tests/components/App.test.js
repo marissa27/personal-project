@@ -19,46 +19,47 @@ describe('App', () => {
     signedIn: true
   }
 
-//   it('Renders Home, Favorites, NavBar', () => {
-//   const wrapper = shallow(
-//     <App
-//       user={user}
-//       fetchMovies={ () => {} }
-//     />
-//   );
-//
-//   expect(wrapper.find('Home').length).toEqual(1);
-//   expect(wrapper.find('Favorites').length).toEqual(1);  expect(wrapper.find('NavBar').length).toEqual(1);
-// });
+  it('Renders Home, Favorites, NavBar', () => {
+  const wrapper = shallow(
+    <App
+      user={user}
+      fetchMovies={ () => {} }
+      history={ history }
+    />
+  );
 
-// it('Should take in user props', () => {
-//   const wrapper = mount(
-//     <App
-//       user={user}
-//       fetchMovies={ () => {} }
-//     />
-//   );
+  expect(wrapper.find('Home').length).toEqual(1);
+  expect(wrapper.find('Favorites').length).toEqual(1);  expect(wrapper.find('NavBar').length).toEqual(1);
+});
 
-//   expect(wrapper.props().user).toEqual({
-//     id: 1,
-//     name: 'marissa',
-//     email: 'reinke.marissa@gmail.com',
-//     signedIn: true
-//     });
-//   });
-//
+it('Should take in user props', () => {
+  const wrapper = mount(
+    <App
+      user={user}
+      fetchMovies={ () => {} }
+    />
+  );
 
-// it('calls componentWillMount', () => {
-//     sinon.spy(App.prototype, 'componentWillMount');
-//     const wrapper = mount(
-//       <App
-//         user={user}
-//         fetchMovies={ () => {} }
-//         history={ browserHistory }
-//        />
-//     );
-//
-//     expect(App.prototype.componentWillMount.calledOnce).to.equal(true);
-//   });
+  expect(wrapper.props().user).toEqual({
+    id: 1,
+    name: 'marissa',
+    email: 'reinke.marissa@gmail.com',
+    signedIn: true
+    });
+  });
+
+
+it('calls componentWillMount', () => {
+    sinon.spy(App.prototype, 'componentWillMount');
+    const wrapper = mount(
+      <App
+        user={user}
+        fetchMovies={ () => {} }
+        history={ browserHistory }
+       />
+    );
+
+    expect(App.prototype.componentWillMount.calledOnce).to.equal(true);
+  });
 
 });
