@@ -101,24 +101,33 @@ h3 {
   width: 40px;
 }
 
-@media only screen and (min-width: 600px)  {
+@media only screen and (min-width: 550px)  {
 
   .movie-wrapper {
     flex-direction: row;
   }
 
   .movie-display {
-    margin: 7px;
+    position: relative;
+    width: 200px;
+    margin: 0 auto;
   }
 
   .login {
     width: 80%;
-    margin-left: 10%;
+    max-width: 500px;
+    margin: 0 auto;
   }
 
   .movie-info {
     width: 80%;
     margin-left: 10%;
+  }
+
+  .favorites-disp {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
   }
 
 }
