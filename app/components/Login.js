@@ -34,12 +34,15 @@ export default class Login extends Component {
           password: ''
         });
         throw Error('Invalid email or password');
+      } else {
+        history.push('/')
+        response.json().then(json => {
+          signIn(json.data)
+        });
       }
-      return response.json()
     })
-    .then(json => {
-      signIn(json.data)
-      history.push('/')
+    .catch(error => {
+      console.log('Error');
     })
   }
 
