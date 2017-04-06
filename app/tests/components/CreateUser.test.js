@@ -57,7 +57,7 @@ describe('testing CreateUser', () => {
     });
   });
 
-  it.skip('should display error when invalid email is entered', () => {
+  it('should display error when invalid email is entered', () => {
     const wrapper = shallow(<CreateUser />);
 
     const nameInput = wrapper.find('input[name="name"]');
@@ -83,7 +83,10 @@ describe('testing CreateUser', () => {
         value: 'supersecure'
       }
     });
-    submitButton.simulate('click');
+
+    submitButton.simulate('click', {
+      preventDefault: jest.fn()
+    });
 
     const displayedError = wrapper.find('h2').last();
 
@@ -92,12 +95,12 @@ describe('testing CreateUser', () => {
     expect(displayedError.text()).toEqual('Please enter a valid email');
   });
 
-  it.skip('should display error when email is already used for an account', async () => {
+  it('should display error when email is already used for an account', async (done) => {
     fetchMock.post('http://localhost:3000/api/users/new', {
       status: 500,
       body: {}
     });
-    const wrapper = shallow(<createUser />);
+    const wrapper = shallow(<CreateUser />);
     const nameInput = wrapper.find('input[name="name"]');
     const emailInput = wrapper.find('input[name="email"]');
     const passwordInput = wrapper.find('input[name="password"]');
@@ -112,7 +115,7 @@ describe('testing CreateUser', () => {
     emailInput.simulate('change', {
       target: {
         name: 'email',
-        value: 'thisisnotarealemail'
+        value: 'thisi@realemail.com'
       }
     });
     passwordInput.simulate('change', {
@@ -122,7 +125,9 @@ describe('testing CreateUser', () => {
       }
     });
 
-    submitButton.simulate('click');
+    submitButton.simulate('click', {
+      preventDefault: jest.fn()
+    });
     await wrapper.update();
 
     const displayedError = wrapper.find('h2').last();

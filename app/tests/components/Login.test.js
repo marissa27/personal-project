@@ -45,7 +45,7 @@ describe('testing Login', () => {
     expect(wrapper.state()).toEqual({ email: 'abc@abc.com', password: 'password', error: '' })
   })
 
-  it.skip('should display error when login fails', async (done) => {
+  it('should display error when login fails', async (done) => {
     fetchMock.post('http://localhost:3000/api/users', {
       status: 500,
       body: {}
@@ -61,7 +61,10 @@ describe('testing Login', () => {
       }
     })
 
-    submitBtn.simulate('click');
+    submitBtn.simulate('click', {
+      preventDefault: jest.fn()
+    });
+
     await wrapper.update();
 
     const displayedError = wrapper.find('h2').last();
@@ -73,7 +76,7 @@ describe('testing Login', () => {
     done();
   })
 
-  it.skip('should redirect to dashboard on successful login', async (done) => {
+  it('should redirect to dashboard on successful login', async (done) => {
     spyOn(browserHistory, 'push');
     fetchMock.post('http://localhost:3000/api/users', {
       status: 200,
@@ -103,7 +106,10 @@ describe('testing Login', () => {
       }
     })
 
-    submitBtn.simulate('click');
+    submitBtn.simulate('click', {
+      preventDefault: jest.fn()
+    });
+
     await wrapper.update();
 
     expect(browserHistory.push).toHaveBeenCalledWith('/');
