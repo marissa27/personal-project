@@ -47,9 +47,12 @@ export default class CreateUser extends Component {
           password: '',
           name: ''
         });
-        throw Error('Invalid email');
+        throw Error('Email in use');
       }
       history.push('/login')
+    })
+    .catch(error => {
+      console.log('Email in use');
     })
   }
 

@@ -33,7 +33,7 @@ export default class Login extends Component {
           email: '',
           password: ''
         });
-        throw Error('Invalid email or password');
+        throw Error('Email and password do not match');
       } else {
         history.push('/')
         response.json().then(json => {
@@ -42,7 +42,7 @@ export default class Login extends Component {
       }
     })
     .catch(error => {
-      console.log('Error');
+      console.log('Email and password do not match');
     })
   }
 
