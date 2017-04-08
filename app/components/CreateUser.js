@@ -86,7 +86,7 @@ export default class CreateUser extends Component {
             onChange={ (e) => this.handleCreateUser(e) }
           />
 
-        <button onClick={ (e) => this.createUser(e) } >Create</button>
+        <button className="submit-btn" onClick={ (e) => this.createUser(e) } >Create</button>
 
         { this.state.error !== '' && <h2>{this.state.error}</h2>}
       </form>
