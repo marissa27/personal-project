@@ -35,13 +35,12 @@ export default class App extends Component {
       .then(json => {
         this.props.showFavorites(json.data)
         button === 'navFavorites' && this.props.history.push('/favorites')
-        return
       })
     }
   }
 
   render() {
-    const { movies, user, signOut, favorites, history, fetchMovies } = this.props
+    const { movies, user, signOut, favorites, history, fetchMovies, addFavorite } = this.props
     return (
       <div>
         <header>
@@ -71,6 +70,7 @@ export default class App extends Component {
             userID={ user.id }
             favorites={ favorites }
             fetchFavorites={ this.fetchFavorites }
+            addFavorite={ addFavorite }
             history={ history }
           />
         } />
@@ -87,7 +87,7 @@ export default class App extends Component {
 
         <Route exact path='/movie/:id' render={({match}) => {
             const movie = movies.find(movie => movie.id === parseInt(match.params.id))
-            return <MovieDetails { ...movie } history={ history }/>
+            return <MovieDetails { ...movie } history={ history } />
           }
         } />
         <Route exact path='/favorites' render={({match}) =>
