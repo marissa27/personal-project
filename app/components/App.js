@@ -40,7 +40,7 @@ export default class App extends Component {
   }
 
   render() {
-    const { movies, user, signOut, favorites, history, fetchMovies, addFavorite } = this.props
+    const { movies, user, signOut, favorites, history, fetchMovies, addFavorite, removeFavorite } = this.props
     return (
       <div>
         <header>
@@ -71,6 +71,7 @@ export default class App extends Component {
             favorites={ favorites }
             fetchFavorites={ this.fetchFavorites }
             addFavorite={ addFavorite }
+            removeFavorite={ removeFavorite }
             history={ history }
           />
         } />
@@ -94,6 +95,7 @@ export default class App extends Component {
             <Favorites
               userID={ user.id }
               favorites={ favorites }
+              removeFavorite={ removeFavorite }
               fetchFavorites={ this.fetchFavorites }
               history={ history }
             />
