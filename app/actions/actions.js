@@ -17,6 +17,16 @@ export const fetchMovies = () => {
   }
 }
 
+export const addFavorite = (movie_id, userID, title, poster_path, release_date, vote_average, overview) => {
+  return function(dispatch) {
+    fetch('http://localhost:3000/api/users/favorites/new', {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({ movie_id, user_id: userID, title, poster_path, release_date, vote_average, overview })
+    })
+  }
+}
+
 export const signIn = (user) => {
   return {
     type: 'SIGN_IN',
