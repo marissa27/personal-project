@@ -17,6 +17,12 @@ export default class App extends Component {
     this.props.fetchMovies()
   }
 
+  componentWillReceiveProps(nextProps) {
+    if(this.props.user.signedIn !== nextProps.user.signedIn) {
+      this.fetchFavorites(null, nextProps.user.id)
+    }
+  }
+
   fetchFavorites(button, userID) {
     if(!userID) {
       this.props.history.push('/login')
@@ -29,6 +35,7 @@ export default class App extends Component {
       .then(json => {
         this.props.showFavorites(json.data)
         button === 'navFavorites' && this.props.history.push('/favorites')
+        return
       })
     }
   }
