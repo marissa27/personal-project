@@ -4978,7 +4978,7 @@
 	
 	// In IE9+, we have access to composition events, but the data supplied
 	// by the native compositionend event may be incorrect. Japanese ideographic
-	// spaces, for instance (\u3000) are not recorded correctly.
+	// spaces, for instance (\u3001) are not recorded correctly.
 	var useFallbackCompositionData = ExecutionEnvironment.canUseDOM && (!canUseCompositionEvent || documentMode && documentMode > 8 && documentMode <= 11);
 	
 	/**
@@ -30105,7 +30105,7 @@
 	      if (!userID) {
 	        this.props.history.push('/login');
 	      } else {
-	        fetch('https://localhost:3000/api/users/' + userID + '/favorites').then(function (response) {
+	        fetch('https://localhost:3001/api/users/' + userID + '/favorites').then(function (response) {
 	          return response.json();
 	        }).then(function (json) {
 	          _this2.props.showFavorites(json.data);
@@ -30687,7 +30687,7 @@
 	          history = _props.history,
 	          signIn = _props.signIn;
 	
-	      fetch('http://localhost:3000/api/users', {
+	      fetch('http://localhost:3001/api/users', {
 	        method: "POST",
 	        headers: { "Content-Type": "application/json" },
 	        body: JSON.stringify({ email: email, password: password })
@@ -30816,7 +30816,7 @@
 	
 	var addFavorite = exports.addFavorite = function addFavorite(movie_id, userID, title, poster_path, release_date, vote_average, overview) {
 	  return function (dispatch) {
-	    fetch('https://localhost:3000/api/users/favorites/new', {
+	    fetch('https://localhost:3001/api/users/favorites/new', {
 	      method: "POST",
 	      headers: { "Content-Type": "application/json" },
 	      body: JSON.stringify({ movie_id: movie_id, user_id: userID, title: title, poster_path: poster_path, release_date: release_date, vote_average: vote_average, overview: overview })
@@ -30826,7 +30826,7 @@
 	
 	var removeFavorite = exports.removeFavorite = function removeFavorite(movie_id, userID) {
 	  return function (dispatch) {
-	    fetch('https://localhost:3000/api/users/' + userID + '/favorites/' + movie_id, {
+	    fetch('https://localhost:3001/api/users/' + userID + '/favorites/' + movie_id, {
 	      method: "DELETE",
 	      headers: { "Content-Type": "application/json" },
 	      body: JSON.stringify({ user_id: userID, movie_id: movie_id })
@@ -30911,7 +30911,7 @@
 	        });
 	        return;
 	      }
-	      fetch('https://localhost:3000/api/users/new', {
+	      fetch('https://localhost:3001/api/users/new', {
 	        method: "POST",
 	        headers: { "Content-Type": "application/json" },
 	        body: JSON.stringify({ email: email, password: password, name: name })
