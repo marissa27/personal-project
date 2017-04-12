@@ -30145,7 +30145,7 @@
 	                { className: 'mov-title' },
 	                'M'
 	              ),
-	              _react2.default.createElement('img', { className: 'film-reel', src: '../../src/images/film-reel.svg' }),
+	              _react2.default.createElement('img', { className: 'film-reel', src: 'images/film-reel.svg' }),
 	              _react2.default.createElement(
 	                'span',
 	                { className: 'mov-title' },
