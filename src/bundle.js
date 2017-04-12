@@ -30687,7 +30687,7 @@
 	          history = _props.history,
 	          signIn = _props.signIn;
 	
-	      fetch('https://localhost:3000/api/users', {
+	      fetch('http://localhost:3000/api/users', {
 	        method: "POST",
 	        headers: { "Content-Type": "application/json" },
 	        body: JSON.stringify({ email: email, password: password })
