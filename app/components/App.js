@@ -46,7 +46,7 @@ export default class App extends Component {
         <header>
           <Link to={`/`}>
             <h1><span className="mov-title">M</span>
-            <img className="film-reel" src="../assets/images/film-reel.svg"></img>
+            <img className="film-reel" src="../../src/images/film-reel.svg"></img>
             <span className="mov-title">vie</span> Watcher</h1>
           </Link>
 
